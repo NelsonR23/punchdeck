@@ -2,7 +2,7 @@ class PunchDeck {
  private int health, attack, defense, mana, score, player;
  private boolean ultimate;
  
- public PunchDeck(){
+ PunchDeck(){
   score=0;
   attack=0;
   defense=0;
@@ -11,46 +11,49 @@ class PunchDeck {
   ultimate=false;
   player=1;
  }
- public int getScore(){
+ int getScore(){
    return score;
  }
- public int getAttack(){
+ int getAttack(){
    return attack;
  }
- public int getDefense(){
+ int getDefense(){
    return defense;
  }
- public int getMana(){
+ int getMana(){
    return mana;
  }
- public int getHealth(){
+ int getHealth(){
    return health;
  }
- public int getPlayer(){
+ int getPlayer(){
    return player;
  }
- public boolean getUltimate(){
+ boolean getUltimate(){
   return ultimate; 
  }
- public void setScore(int n){
+  void setScore(int n){
    score=n;
  }
-  public void setHealth(int n){
+  void setHealth(int n){
    health=n;
  }
-  public void setAttack(int n){
+  void setAttack(int n){
    attack=n;
  }
-  public void setDefense(int n){
+  void setDefense(int n){
    defense=n;
  }
-  public void setMana(int n){
+  void setMana(int n){
    mana=n;
  }
-  public void setUltimate(boolean n){
+  void setUltimate(boolean n){
    ultimate=n;
  }
- public void setPlayer(int n){
+ void setPlayer(int n){
    player=n;
+}
+int rolly(){
+  return (int)(Math.random()*7)+1;
 }
 }

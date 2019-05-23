@@ -1,7 +1,7 @@
 class Graphic {
   int xcord, ycord, height, width;
   
-  public Graphic(){
+  Graphic(){
     height=0;
     width=0;
     xcord=0;
