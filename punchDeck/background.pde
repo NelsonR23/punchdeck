@@ -10,4 +10,7 @@ class Graphic {
   void drawRect(int x, int y, int h, int w){
     rect(x, y, h, w);
   }
+  void meter(){
+    rect(405,x, 260,50);
+  }
 }
