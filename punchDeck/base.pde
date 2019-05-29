@@ -1,4 +1,4 @@
- class PunchDeck {
+ class PunchDeck  {
 
  private int health, attack, defense, mana, score, player;
 
@@ -14,7 +14,7 @@
 
   mana=0;
 
-  health=100;
+  health=5;
 
   ultimate=false;
 
@@ -108,7 +108,7 @@
 
 int rolly(){
 
-  return (int)(Math.random()*7)+1;
+  return (int)(Math.random()*6)+1;
 
 }
 
