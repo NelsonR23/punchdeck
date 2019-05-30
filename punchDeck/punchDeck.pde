@@ -27,7 +27,7 @@ void setup() {
 }
 
 void draw() {
-
+  textAlign(LEFT);
   background(0, 0, 0);
   fill(255);
   noStroke();
@@ -53,7 +53,7 @@ void draw() {
 
     //left
     fill(0);
-    text(punch1.getHealth(), 87, 420);
+    text(punch1.getHealth(), 95, 420);
 
     fill(55, 255, 255);
     text("Attack: " + punch1.getAttack(), 55, 550);
@@ -62,7 +62,7 @@ void draw() {
 
     //right
     fill(0);
-    text(punch2.getHealth(), 837, 420);
+    text(punch2.getHealth(), 845, 420);
 
     fill(55, 255, 255);
     text("Attack: " + punch2.getAttack(), 810, 550);
@@ -71,13 +71,13 @@ void draw() {
 
     //middle
     text("Player " + pturn, 440, 80);
-gover();
+
     if (pturn==1) {
       turn(punch1);
     } else {
       turn(punch2);
     }
-  
+    gover();
   }
 }
 
@@ -112,48 +112,6 @@ void turn(PunchDeck punch) {
       step=10;
     }
   }
-
-  //if (keyPressed) {
-  //  if (key==32 ) {  
-
-  /* if (key==32 && punch1.getPlayer()==1) {
-   fill(255);
-   if (xp>=490 && xp<=510) {
-   punch.setAttack(punch1.getAttack()+5);
-   text("+5", 495, 530);
-   } else if ((xp>425&&xp<490) || (xp>510&&xp<575)) {
-   punch.setAttack(punch1.getAttack());
-   text("", 495, 530);
-   } else if ((xp>=275&&xp<=425) || (xp>=575 && xp<=725)) {
-   punch.setAttack(punch1.getAttack()-5); 
-   text("-5", 495, 530);
-   }
-   count++;
-   } 
-   fill(255);
-   if (xp>=490 && xp<=510) {
-   punch.setAttack(punch.getAttack()+5);
-   text("+5", 495, 530);
-   }
-   if ((xp>425&&xp<490) || (xp>510&&xp<575)) {
-   punch.setAttack(punch.getAttack());
-   text("", 495, 530);
-   } 
-   if ((xp>=275&&xp<=425) || (xp>=575 && xp<=725)) {
-   punch.setAttack(punch.getAttack()-5); 
-   text("-5", 495, 530);
-   }
-   count++;
-   metst=0;
-   pturn = pturn==1?2:1;
-   endTurn(pturn);
-   }
-   }
-   }
-   */
-  //if (count>=1) {
-  //  endTurn(2);
-  // }
 }
 
 void keyReleased() {
@@ -190,7 +148,6 @@ void keyReleased() {
       }
       pturn = pturn==1?2:1;
       rol = punch1.rolly();
-      //gover();
     }
   }
 } 
@@ -212,39 +169,7 @@ PunchDeck punch(int n) {
   return n==1?punch1:punch2;
 }
 
-/*void keyPressed() {
- 
- if (key==32 && punch1.getPlayer()==1) {
- fill(255);
- if (xp>=490 && xp<=510) {
- punch1.setAttack(punch1.getAttack()+5);
- text("+5", 495, 530);
- } else if ((xp>425&&xp<490) || (xp>510&&xp<575)) {
- punch1.setAttack(punch1.getAttack());
- text("", 495, 530);
- } else if ((xp>=275&&xp<=425) || (xp>=575 && xp<=725)) {
- punch1.setAttack(punch1.getAttack()-5); 
- text("-5", 495, 530);
- }
- count++;
- }
- if (key==32 && punch1.getPlayer()==2){
- fill(255);
- if (xp>=490 && xp<=510) {
- punch1.setAttack(punch2.getAttack()+5);
- text("+5", 495, 530);
- } else if ((xp>425&&xp<490) || (xp>510&&xp<575)) {
- punch1.setAttack(punch2.getAttack());
- text("", 495, 530);
- } else if ((xp>=275&&xp<=425) || (xp>=575 && xp<=725)) {
- punch1.setAttack(punch2.getAttack()-5); 
- text("-5", 495, 530);
- }
- count++;
- }
- }
- 
- */
+
 void roll(PunchDeck punch) {
 
   rect(425, 200, 150, 90);
@@ -331,34 +256,52 @@ void roll(PunchDeck punch) {
 }
 
 void gover() {
-  if(punch1.getHealth()<=0&&punch2.getHealth()<=0){
-    textAlign(CENTER,CENTER);
-      textSize(75);
-      fill(0);
-      rect(0, 0, 1000, 800);
-      fill(55, 255, 255);
-      text("Draw", 500, 300);
+
+  if (punch1.getHealth()<=0&&punch2.getHealth()<=0) {
+    textAlign(CENTER, CENTER);
+    textSize(75);
+    fill(0);
+    rect(0, 0, 1000, 800);
+    fill(55, 255, 255);
+    text("Draw", 500, 300);
   }
-  if (pturn==1) {
-    if (punch1.getHealth()<=0) {
-      textAlign(CENTER,CENTER);
-      textSize(75);
-      fill(0);
-      rect(0, 0, 1000, 800);
-      fill(55, 255, 255);
-      text("Game Over", 500, 300);
-      text("Winner: Player 2", 500, 400);
-    }
+
+  if (punch1.getHealth()<=0) {
+    textAlign(CENTER, CENTER);
+    textSize(75);
+    fill(0);
+    rect(0, 0, 1000, 800);
+    fill(55, 255, 255);
+    text("Game Over", 500, 300);
+    text("Player 2 Wins", 500, 400);
+    textSize(25);
+    text("Press R to restart", 150, 750);
   }
-  if (pturn==2) {
-    if (punch2.getHealth()<=0) {
-      textAlign(CENTER,CENTER);
-      textSize(75);
-      fill(0);
-      rect(0, 0, 1000, 800);
-      fill(55, 255, 255);
-      text("Game Over", 500, 300);
-      text("Winner: Player 1", 500, 400);
+
+  if (punch2.getHealth()<=0) {
+    textAlign(CENTER, CENTER);
+    textSize(75);
+    fill(0);
+    rect(0, 0, 1000, 800);
+    fill(55, 255, 255);
+    text("Game Over", 500, 300);
+    text("Player 1 Wins", 500, 400);
+    textSize(25);
+    text("Press R to restart", 150, 750);
+  }
+  if (keyPressed) {
+    if (key=='r' || key=='R') {
+      start=0;
+      roll=0;
+      metst=0;
+      punch1.setHealth(100);
+      punch2.setHealth(100);
+      punch1.setAttack(0);
+      punch2.setAttack(0);
+      punch1.setDefense(0);
+      punch2.setDefense(0);
+      punch1.setMana(0);
+      punch2.setMana(0);
     }
   }
 }

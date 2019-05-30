@@ -5,13 +5,9 @@ class Graphic {
 
 
   Graphic() {
-
     height=0;
-
     width=0;
-
     xcord=0;
-
     ycord=0;
     xp=275;
     step=1;

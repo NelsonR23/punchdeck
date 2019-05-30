@@ -1,115 +1,77 @@
- class PunchDeck  {
+class PunchDeck {
 
- private int health, attack, defense, mana, score, player;
+  private int health, attack, defense, mana, score, player;
 
- private boolean ultimate;
+  private boolean ultimate;
 
- PunchDeck(){
+  PunchDeck() {
 
-  score=0;
+    score=0;
+    attack=0;
+    defense=0;
+    mana=0;
+    health=15;
+    ultimate=false;
+    player=1;
+  }
 
-  attack=0;
+  int getScore() {
+    return score;
+  }
 
-  defense=0;
+  int getAttack() {
+    return attack;
+  }
 
-  mana=0;
+  int getDefense() {
+    return defense;
+  }
 
-  health=5;
+  int getMana() {
+    return mana;
+  }
 
-  ultimate=false;
+  int getHealth() {
+    return health;
+  }
 
-  player=1;
+  int getPlayer() {
+    return player;
+  }
 
- }
+  boolean getUltimate() {
+    return ultimate;
+  }
 
- int getScore(){
+  void setScore(int n) {
+    score=n;
+  }
 
-   return score;
+  void setHealth(int n) {
+    health=n;
+  }
 
- }
+  void setAttack(int n) {
+    attack=n;
+  }
 
- int getAttack(){
+  void setDefense(int n) {
+    defense=n;
+  }
 
-   return attack;
+  void setMana(int n) {
+    mana=n;
+  }
 
- }
+  void setUltimate(boolean n) {
+    ultimate=n;
+  }
 
- int getDefense(){
+  void setPlayer(int n) {
+    player=n;
+  }
 
-   return defense;
-
- }
-
- int getMana(){
-
-   return mana;
-
- }
-
- int getHealth(){
-
-   return health;
-
- }
-
- int getPlayer(){
-
-   return player;
-
- }
-
- boolean getUltimate(){
-
-  return ultimate; 
-
- }
-
-  void setScore(int n){
-
-   score=n;
-
- }
-
-  void setHealth(int n){
-
-   health=n;
-
- }
-
-  void setAttack(int n){
-
-   attack=n;
-
- }
-
-  void setDefense(int n){
-
-   defense=n;
-
- }
-
-  void setMana(int n){
-
-   mana=n;
-
- }
-
-  void setUltimate(boolean n){
-
-   ultimate=n;
-
- }
-
- void setPlayer(int n){
-
-   player=n;
-
-}
-
-int rolly(){
-
-  return (int)(Math.random()*6)+1;
-
-}
-
+  int rolly() {
+    return (int)(Math.random()*6)+1;
+  }
 }
