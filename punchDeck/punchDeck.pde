@@ -100,7 +100,7 @@ void turn(PunchDeck punch) {
   if (metst>=1) {
 
     fill(0);
-    rect(300, 200, 800, 80);
+    rect(300, 100, 800, 180);
     fill(55, 255, 255);
     textSize(40);
     text("Press Space", 400, 320);
