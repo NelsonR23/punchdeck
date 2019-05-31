@@ -5,6 +5,8 @@ int start;
 int metst;
 boolean met=false;
 int spacepress=0;
+int tempframe=0;
+int whatever=0;
 
 PunchDeck punch1 = new PunchDeck();
 
@@ -18,7 +20,7 @@ void setup() {
 
   size(1000, 800);
 
-  roll=0;
+  rol = punch1.rolly();
   xp=275;
   step=10;
   start=0;
@@ -72,6 +74,16 @@ void draw() {
     //middle
     text("Player " + pturn, 440, 80);
 
+    if (frameCount<tempframe) {
+      textAlign(CENTER, CENTER);
+      if (whatever==0) {
+        text("+5 Attack", 495, 530);
+      }
+      if (whatever==1) {
+        text("-5 Attack", 495, 530);
+      }
+    }
+    textAlign(LEFT);
     if (pturn==1) {
       turn(punch1);
     } else {
@@ -88,7 +100,7 @@ void turn(PunchDeck punch) {
   if (metst>=1) {
 
     fill(0);
-    rect(350, 200, 720, 80);
+    rect(300, 200, 800, 80);
     fill(55, 255, 255);
     textSize(40);
     text("Press Space", 400, 320);
@@ -127,18 +139,23 @@ void keyReleased() {
   if (metst>=1) {
 
     if (key==32) {
+
       fill(255);
-      if (xp>=490 && xp<=510) {
+      if (xp+5>=485 && xp+5<=525) {
         punch(pturn).setAttack(punch(pturn).getAttack()+5);
-        text("+5", 495, 530);
+        //text("+5", 495, 530);
+        tempframe=frameCount+60;
+        whatever=0;
       }
-      if ((xp>425&&xp<490) || (xp>510&&xp<575)) {
+      if ((xp+5>425&&xp+5<485) || (xp+5>525&&xp+5<575)) {
         punch(pturn).setAttack(punch(pturn).getAttack());
         text("", 495, 530);
       } 
-      if ((xp>=275&&xp<=425) || (xp>=575 && xp<=725)) {
+      if ((xp+5>=275&&xp+5<=425) || (xp+5>=575 && xp+5<=725)) {
         punch(pturn).setAttack(punch(pturn).getAttack()==0?0:punch(pturn).getAttack()-5); 
-        text("-5", 495, 530);
+        //text("-5", 495, 530);        
+        tempframe=frameCount+60;
+        whatever=1;
       }
       count++;
       metst=0;
@@ -175,7 +192,7 @@ void roll(PunchDeck punch) {
   rect(425, 200, 150, 90);
   fill(0);
   text("Roll", 475, 255);
-
+  String rolll=""+rol;
   if (mousePressed) {
     roll++;
   }
@@ -187,48 +204,56 @@ void roll(PunchDeck punch) {
 
     fill(55, 255, 255);
 
-    rect(350, 200, 110, 80);
-    rect(480, 200, 110, 80);
-    rect(610, 200, 110, 80);
+    rect(315, 200, 110, 80);
+    rect(445, 200, 110, 80);
+    rect(575, 200, 110, 80);
+    fill(255);
+    rect(470, 115, 60, 60, 10);
 
     if (rol<=2) {
 
       fill(0); 
       textSize(15);
 
-      text("Attack: +5", 365, 230 );
-      text("Press A", 370, 260 );
+      text("Attack: +5", 330, 230 );
+      text("Press A", 335, 260 );
 
-      text("Defense: +5", 490, 230);
-      text("Press D", 500, 260);
+      text("Defense: +5", 455, 230);
+      text("Press D", 460, 260);
 
-      text("Mana: +5", 625, 230);
-      text("Press G", 630, 260);
+      text("Mana: +5", 590, 230);
+      text("Press G", 595, 260);
+      textSize(40);
+      text(rolll, 488, 160);
     } else if (rol==3 || rol==4) {
 
       fill(0);
       textSize(15);
 
-      text("Attack: +10", 355, 230 );
-      text("Press A", 370, 260 );
+      text("Attack: +10", 330, 230 );
+      text("Press A", 335, 260 );
 
-      text("Defense: +10", 485, 230 );
-      text("Press D", 500, 260 );
+      text("Defense: +10", 452, 230 );
+      text("Press D", 460, 260 );
 
-      text("Mana: +10", 625, 230 );
-      text("Press G", 630, 260 );
+      text("Mana: +10", 590, 230 );
+      text("Press G", 595, 260 );
+      textSize(40);
+      text(rolll, 488, 160);
     } else {
       fill(0);
       textSize(15);
 
-      text("Attack: +15", 355, 230 );
-      text("Press A", 370, 260 );
+      text("Attack: +15", 330, 230 );
+      text("Press A", 335, 260 );
 
-      text("Defense: +15", 485, 230 );
-      text("Press D", 500, 260);
+      text("Defense: +15", 452, 230 );
+      text("Press D", 460, 260);
 
-      text("Mana: +15", 625, 230 );
-      text("Press G", 630, 260 );
+      text("Mana: +15", 590, 230 );
+      text("Press G", 595, 260 );
+      textSize(40);
+      text(rolll, 488, 160);
     }
   }
   if (keyPressed) {
@@ -257,16 +282,16 @@ void roll(PunchDeck punch) {
 
 void gover() {
 
-  if (punch1.getHealth()<=0&&punch2.getHealth()<=0) {
+  if (punch1.getHealth()<=0 && punch2.getHealth()<=0) {
     textAlign(CENTER, CENTER);
     textSize(75);
     fill(0);
     rect(0, 0, 1000, 800);
     fill(55, 255, 255);
     text("Draw", 500, 300);
-  }
-
-  if (punch1.getHealth()<=0) {
+    textSize(25);
+    text("Press R to restart", 150, 750);
+  } else if (punch1.getHealth()<=0) {
     textAlign(CENTER, CENTER);
     textSize(75);
     fill(0);
@@ -276,9 +301,7 @@ void gover() {
     text("Player 2 Wins", 500, 400);
     textSize(25);
     text("Press R to restart", 150, 750);
-  }
-
-  if (punch2.getHealth()<=0) {
+  } else if (punch2.getHealth()<=0) {
     textAlign(CENTER, CENTER);
     textSize(75);
     fill(0);

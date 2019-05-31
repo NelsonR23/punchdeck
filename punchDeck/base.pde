@@ -10,7 +10,7 @@ class PunchDeck {
     attack=0;
     defense=0;
     mana=0;
-    health=15;
+    health=50;
     ultimate=false;
     player=1;
   }
