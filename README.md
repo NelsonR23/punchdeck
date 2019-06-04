@@ -11,36 +11,37 @@ The toughest part was implementing turns and keeping track of which values to ch
 ### Most interesting piece of your code and explanation for what it does.
 
 ```Java
-void keyPressed() {
-if (keyCode == LEFT) {
-   tree= tree.getLeft();
-   System.out.println(tree.getValue());
-   String s=(String)tree.getValue();
-   fill(155);
-   textSize(50);
-} else if (keyCode == RIGHT) {
-   tree = tree.getRight();
-   System.out.println(tree.getValue());
-   String s=(String)tree.getValue();
-   fill(155);
-   textSize(50);
-} else if (tree.getLeft()==null&&tree.getRight()==null) {
-   System.out.println(tree.getValue());
-   tree=t.returnTree();
-}
-}
+if (xp+5>=485 && xp+5<=525) {
+        punch(pturn).setAttack(punch(pturn).getAttack()+5);
+        tempframe=frameCount+60;
+        whatever=0;
+      }
+      if ((xp+5>425&&xp+5<485) || (xp+5>525&&xp+5<575)) {
+        punch(pturn).setAttack(punch(pturn).getAttack());
+        text("", 495, 530);
+      } 
+      if ((xp+5>=275&&xp+5<=425) || (xp+5>=575 && xp+5<=725)) {
+        punch(pturn).setAttack(punch(pturn).getAttack()==0?0:punch(pturn).getAttack()-5);        
+        tempframe=frameCount+60;
+        whatever=1;
+      }
+      count++;
+      metst=0;
+      if (pturn==2) {
+        execute(1);
+        execute(2);
+      }
 ```
-This is the code that moves down the tree as decisions are made. It gets each value from both left and right and also casts the value to a String. If the progressions arrives at the leaf nodes, those values are printed.
+This code sets the values of the player's attack after they press space to stop the power meter. If the blue bar is in the red area then the player's atack will go down by five. Location of the bar is determined by the xp value within the conditionals. The orange area will not impact the attack, and the green area will increase the player's attack by 5.
 ## Built With
 
 * [Processing](https://processing.org/) - The IDE used
 
 ## Authors
 
-* **Billie Thompson** 
+* **Riley Nelson** 
 
 ## Acknowledgments
 
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+* Big thanks to Alex Moran for helping with logic
+
