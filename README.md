@@ -32,10 +32,10 @@ if (xp+5>=485 && xp+5<=525) {
         execute(2);
       }
 ```
-This code sets the values of the player's attack after they press space to stop the power meter. If the blue bar is in the red area then the player's atack will go down by five. Location of the bar is determined by the xp value within the conditionals. The orange area will not impact the attack, and the green area will increase the player's attack by 5.
+This code sets the values of the player's attack after they press space to stop the power meter. If the blue bar is in the red area then the player's atack will go down by five. Location of the bar is determined by the xp value within the conditionals. The orange area will not impact the attack, and the green area will increase the player's attack by 5. The tempframe value is used to project the result of the power meter move with either "+5" or "-5".
 ## Built With
 
-* [Processing](https://processing.org/) - The IDE used
+* [Processing](https://processing.org/)
 
 ## Authors
 
@@ -43,5 +43,5 @@ This code sets the values of the player's attack after they press space to stop 
 
 ## Acknowledgments
 
-* Big thanks to Alex Moran for helping with logic
+* Big thanks to Alex Moran for helping with logic and turn switching
 
