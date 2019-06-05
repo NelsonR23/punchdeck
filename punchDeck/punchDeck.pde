@@ -143,7 +143,6 @@ void keyReleased() {
       fill(255);
       if (xp+5>=485 && xp+5<=525) {
         punch(pturn).setAttack(punch(pturn).getAttack()+5);
-        //text("+5", 495, 530);
         tempframe=frameCount+60;
         whatever=0;
       }
@@ -152,8 +151,7 @@ void keyReleased() {
         text("", 495, 530);
       } 
       if ((xp+5>=275&&xp+5<=425) || (xp+5>=575 && xp+5<=725)) {
-        punch(pturn).setAttack(punch(pturn).getAttack()==0?0:punch(pturn).getAttack()-5); 
-        //text("-5", 495, 530);        
+        punch(pturn).setAttack(punch(pturn).getAttack()==0?0:punch(pturn).getAttack()-5);      
         tempframe=frameCount+60;
         whatever=1;
       }
@@ -219,7 +217,7 @@ void roll(PunchDeck punch) {
       text("Press A", 335, 260 );
 
       text("Defense: +5", 455, 230);
-      text("Press D", 460, 260);
+      text("Press D", 470, 260);
 
       text("Mana: +5", 590, 230);
       text("Press G", 595, 260);
@@ -327,4 +325,4 @@ void gover() {
       punch2.setMana(0);
     }
   }
-}
+}    
